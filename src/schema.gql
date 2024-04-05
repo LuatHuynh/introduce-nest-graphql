@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Department {
+  id: String!
+  name: String!
+  floor: Int!
+  email: String
+  phoneNumber: String
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  department(id: String!): Department!
+  departments: [Department!]!
+  departmentsWithFilter(filter: DepartmentFilterInput!): [Department!]!
+}
+
+input DepartmentFilterInput {
+  email: String
+  name: String
+  floor: Float
+  phoneNumber: String
+}
+
+type Mutation {
+  createDepartment(department: CreateDepartmentArgs!): Department!
+  updateDepartment(department: UpdateDepartmentArgs!): Department!
+  deleteDepartment(id: String!): Department!
+}
+
+input CreateDepartmentArgs {
+  name: String!
+  floor: Int!
+  email: String
+  phoneNumber: String
+}
+
+input UpdateDepartmentArgs {
+  id: String!
+  name: String
+  floor: Int
+  email: String
+  phoneNumber: String
+}
